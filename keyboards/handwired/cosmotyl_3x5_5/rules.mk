@@ -11,6 +11,7 @@ BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 # RGB_MATRIX_ENABLE = yes     # Enable keyboard RGB matrix lighting
 AUDIO_ENABLE = no           # Audio output
 SPLIT_KEYBOARD = yes
+
 SERIAL_DRIVER = vendor
 
 VIA_ENABLE = yes
