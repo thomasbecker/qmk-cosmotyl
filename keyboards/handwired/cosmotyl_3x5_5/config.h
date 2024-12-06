@@ -1,44 +1,27 @@
-/*
-Copyright 2019 @foostan
-Copyright 2020 Drashna Jaelre <@drashna>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+// Copyright 2022 Shem Sedrick (@ssedrick)
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
 
+#define EE_HANDS // Store which side I am in EEPROM
 
-#define MATRIX_ROW_PINS \
-    { D4, C6, D7, E6 }
+// Wiring pins
+// #define MATRIX_ROW_PINS {GP4, GP5, GP6, GP7, GP8}
+// #define MATRIX_COL_PINS {GP9, GP10, GP19, GP20, GP18}
 
-// wiring of each half
-#define MATRIX_COL_PINS \
-    { F4, F5, F6, F7, B1, B3 }
-// #define MATRIX_COL_PINS { B2, B3, B1, F7, F6, F5, F4 } //uncomment this line and comment line above if you need to reverse left-to-right key order
+/* Encoders */
+// #define ENCODERS_PAD_A { GP21, GP20 }
+// #define ENCODERS_PAD_B { GP18, GP19 }
 
-/*
- * Feature disable options
- *  These options are also useful to firmware size reduction.
- */
+/* Trackball */
+// #define SPI_DRIVER SPID0
+// #define SPI_SCK_PIN GP18
+// #define SPI_MISO_PIN GP20
+// #define SPI_MOSI_PIN GP19
+// #define POINTING_DEVICE_CS_PIN GP10
+// #define ROTATIONAL_TRANSFORM_ANGLE -30 // Optional: Rotates the trackball
+// #define POINTING_DEVICE_INVERT_X // Optional: Inverts trackball X
 
-/* disable debug print */
-// #define NO_DEBUG
-
-/* disable print */
-// #define NO_PRINT
-
-/* disable action features */
-//#define NO_ACTION_LAYER
-//#define NO_ACTION_TAPPING
-//#define NO_ACTION_ONESHOT
+/* Reset */
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17

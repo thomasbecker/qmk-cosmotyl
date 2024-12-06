@@ -1,23 +1,24 @@
 # Build Options
-#   change yes to no to disable
-#
+
 BOOTMAGIC_ENABLE = yes      # Enable Bootmagic Lite
-MOUSEKEY_ENABLE = yes       # Mouse keys
+# MOUSEKEY_ENABLE = yes     # Mouse keys
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = no         # Console for debug
 COMMAND_ENABLE = no         # Commands for debug and configuration
-NKRO_ENABLE = yes           # Enable N-Key Rollover
+# NKRO_ENABLE = yes         # Enable N-Key Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
-RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
+# RGBLIGHT_ENABLE = yes       # Enable keyboard RGB underglow
+# RGB_MATRIX_ENABLE = yes     # Enable keyboard RGB matrix lighting
 AUDIO_ENABLE = no           # Audio output
-RGB_MATRIX_ENABLE = no
-RGB_MATRIX_DRIVER = WS2812
-LTO_ENABLE = yes
+SPLIT_KEYBOARD = yes
+SERIAL_DRIVER = vendor
 
-# if firmware size over limit, try this option
-# LTO_ENABLE = yes
+VIA_ENABLE = yes
 
-DEFAULT_FOLDER = crkbd/rev1
+# Trackball
+# POINTING_DEVICE_ENABLE = yes
+# POINTING_DEVICE_DRIVER = pmw3389 # Change to pmw3360 if you use that
 
-RGBLIGHT_SUPPORTED = yes
-RGB_MATRIX_SUPPORTED = yes
+# Encoder
+# ENCODER_ENABLE = yes
+# ENCODER_MAP_ENABLE = yes
