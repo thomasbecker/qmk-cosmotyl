@@ -3,9 +3,7 @@
 
 #include QMK_KEYBOARD_H
 
-enum key_layers {
-    _COLEMAK
-} //, _RAISE, _LOWER };
+enum key_layers { _COLEMAK }; //, _RAISE, _LOWER };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Colemak

@@ -22,8 +22,9 @@
     },
     "matrix_size": {
         "cols": 5,
-        "rows": 5
+        "rows": 10
     },
+    "diode_direction": "COL2ROW",
     "layouts": {
         "LAYOUT": {
             "layout": [
@@ -33,11 +34,11 @@
                 { "label": "p", "matrix": [0, 3], "x": 3, "y": 0 },
                 { "label": "b", "matrix": [0, 4], "x": 4, "y": 0 },
 
-                { "label": "j", "matrix": [4, 0], "x": 0, "y": 4 },
-                { "label": "l", "matrix": [4, 1], "x": 1, "y": 4 },
-                { "label": "u", "matrix": [4, 2], "x": 2, "y": 4 },
-                { "label": "y", "matrix": [4, 3], "x": 3, "y": 4 },
-                { "label": "'", "matrix": [4, 4], "x": 4, "y": 4 },
+                { "label": "j", "matrix": [5, 0], "x": 0, "y": 5 },
+                { "label": "l", "matrix": [5, 1], "x": 1, "y": 5 },
+                { "label": "u", "matrix": [5, 2], "x": 2, "y": 5 },
+                { "label": "y", "matrix": [5, 3], "x": 3, "y": 5 },
+                { "label": "'", "matrix": [5, 4], "x": 4, "y": 5 },
 
                 { "label": "a", "matrix": [1, 0], "x": 0, "y": 1 },
                 { "label": "r", "matrix": [1, 1], "x": 1, "y": 1 },
@@ -45,11 +46,11 @@
                 { "label": "t", "matrix": [1, 3], "x": 3, "y": 1 },
                 { "label": "g", "matrix": [1, 4], "x": 4, "y": 1 },
 
-                { "label": "m", "matrix": [5, 0], "x": 0, "y": 5 },
-                { "label": "n", "matrix": [5, 1], "x": 1, "y": 5 },
-                { "label": "e", "matrix": [5, 2], "x": 2, "y": 5 },
-                { "label": "i", "matrix": [5, 3], "x": 3, "y": 5 },
-                { "label": "o", "matrix": [5, 4], "x": 4, "y": 5 },
+                { "label": "m", "matrix": [6, 0], "x": 0, "y": 6 },
+                { "label": "n", "matrix": [6, 1], "x": 1, "y": 6 },
+                { "label": "e", "matrix": [6, 2], "x": 2, "y": 6 },
+                { "label": "i", "matrix": [6, 3], "x": 3, "y": 6 },
+                { "label": "o", "matrix": [6, 4], "x": 4, "y": 6 },
 
                 { "label": "z", "matrix": [2, 0], "x": 0, "y": 2 },
                 { "label": "x", "matrix": [2, 1], "x": 1, "y": 2 },
@@ -57,25 +58,25 @@
                 { "label": "d", "matrix": [2, 3], "x": 3, "y": 2 },
                 { "label": "v", "matrix": [2, 4], "x": 4, "y": 2 },
 
-                { "label": "k", "matrix": [6, 0], "x": 0, "y": 6 },
-                { "label": "h", "matrix": [6, 1], "x": 1, "y": 6 },
-                { "label": ",", "matrix": [6, 2], "x": 2, "y": 6 },
-                { "label": ",", "matrix": [6, 3], "x": 3, "y": 6 },
-                { "label": "/", "matrix": [6, 4], "x": 4, "y": 6 },
+                { "label": "k", "matrix": [7, 0], "x": 0, "y": 7 },
+                { "label": "h", "matrix": [7, 1], "x": 1, "y": 7 },
+                { "label": ",", "matrix": [7, 2], "x": 2, "y": 7 },
+                { "label": ",", "matrix": [7, 3], "x": 3, "y": 7 },
+                { "label": "/", "matrix": [7, 4], "x": 4, "y": 7 },
 
                 { "label": "ltt", "matrix": [3, 0], "x": 0, "y": 3 },
                 { "label": "mtt", "matrix": [3, 1], "x": 1, "y": 3 },
                 { "label": "rtt", "matrix": [3, 2], "x": 2, "y": 3 },
 
-                { "label": "ltt", "matrix": [7, 0], "x": 0, "y": 7 },
-                { "label": "mtt", "matrix": [7, 1], "x": 1, "y": 7 },
-                { "label": "rtt", "matrix": [7, 2], "x": 2, "y": 7 },
+                { "label": "ltt", "matrix": [8, 0], "x": 0, "y": 8 },
+                { "label": "mtt", "matrix": [8, 1], "x": 1, "y": 8 },
+                { "label": "rtt", "matrix": [8, 2], "x": 2, "y": 8 },
 
                 { "label": "mtb", "matrix": [4, 0], "x": 0, "y": 4 },
                 { "label": "rtb", "matrix": [4, 1], "x": 1, "y": 4 },
 
-                { "label": "mtb", "matrix": [8, 0], "x": 0, "y": 8 },
-                { "label": "rtb", "matrix": [8, 1], "x": 1, "y": 8 }
+                { "label": "mtb", "matrix": [9, 0], "x": 0, "y": 9 },
+                { "label": "rtb", "matrix": [9, 1], "x": 1, "y": 9 }
             ]
         }
     }

@@ -5,6 +5,11 @@
 
 #define EE_HANDS // Store which side I am in EEPROM
 
+// #define MATRIX_ROWS 10 // 5 rows per hand
+// #define MATRIX_COLS 5
+// #define ROWS_PER_HAND 5
+// #define MATRIX_ROW_PINS {GP4, GP5, GP6, GP7, GP8}
+// #define MATRIX_COL_PINS {GP9, GP10, GP19, GP20, GP18}
 // Wiring pins
 // #define MATRIX_ROW_PINS {GP4, GP5, GP6, GP7, GP8}
 // #define MATRIX_COL_PINS {GP9, GP10, GP19, GP20, GP18}
