@@ -14,6 +14,7 @@ SPLIT_KEYBOARD = yes
 
 SERIAL_DRIVER = vendor
 
+
 # Trackball
 # POINTING_DEVICE_ENABLE = yes
 # POINTING_DEVICE_DRIVER = pmw3389 # Change to pmw3360 if you use that
