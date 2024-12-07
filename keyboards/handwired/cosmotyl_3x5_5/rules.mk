@@ -14,7 +14,6 @@ SPLIT_KEYBOARD = yes
 
 SERIAL_DRIVER = vendor
 
-VIA_ENABLE = yes
 
 # Trackball
 # POINTING_DEVICE_ENABLE = yes
