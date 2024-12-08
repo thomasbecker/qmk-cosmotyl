@@ -17,14 +17,14 @@
     "processor": "RP2040",
     "bootloader": "rp2040",
     "matrix_pins": {
-        "cols": ["GP4", "GP5", "GP6", "GP7", "GP8"],
-        "rows": ["GP9", "GP10", "GP19", "GP20", "GP18"]
+        "rows": ["GP4", "GP5", "GP6", "GP7", "GP8"],
+        "cols": ["GP9", "GP10", "GP19", "GP20", "GP18"]
     },
     "matrix_size": {
         "cols": 5,
         "rows": 10
     },
-    "diode_direction": "COL2ROW",
+    "diode_direction": "ROW2COL",
     "layouts": {
         "LAYOUT": {
             "layout": [

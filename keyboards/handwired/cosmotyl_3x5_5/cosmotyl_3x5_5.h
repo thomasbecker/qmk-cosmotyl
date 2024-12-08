@@ -17,9 +17,10 @@
     { L20, L21, L22, L23, L24 }, \
     { XXX, XXX, L25, L26, L27 }, \
     { XXX, XXX, XXX, L28, L29 }, \
+\
     { R00, R01, R02, R03, R04 }, \
     { R10, R11, R12, R13, R14 }, \
     { R20, R21, R22, R23, R24 }, \
-    { XXX, XXX, R25, R26, R27 }, \
-    { XXX, XXX, XXX, R28, R29 } \
+    { R25, R26, R27, XXX, XXX }, \
+    { R28, R29, XXX, XXX, XXX } \
 }
