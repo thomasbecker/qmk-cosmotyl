@@ -8,7 +8,12 @@
         "pid": "0x3435",
         "device_version": "0.0.1"
     },
+    "build": {
+        "lto": true
+    },
     "split": {
+        "enabled": true,
+        "main": "left",
         "soft_serial_pin": "GP1",
         "bootmagic": {
             "matrix": [0, 0]
@@ -25,6 +30,72 @@
         "rows": 10
     },
     "diode_direction": "ROW2COL",
+    "features": {
+        "bootmagic": true,
+        "command": false,
+        "console": false,
+        "extrakey": true,
+        "mousekey": true,
+        "rgb_matrix": true
+    },
+    "rgblight": {
+        "pin": "GP26"
+    },
+    "rgb_matrix": {
+        "driver": "WS2812",
+        "animations": {
+            "alphas_mods": true,
+            "gradient_up_down": true,
+            "gradient_left_right": true,
+            "breathing": true,
+            "band_sat": true,
+            "band_val": true
+        },
+        "max_brightness": 255,
+        "split_count": [20, 20],
+        "layout": [
+            { "flags": 4, "x": 0, "y": 0 },
+            { "flags": 4, "x": 1, "y": 0 },
+            { "flags": 4, "x": 2, "y": 0 },
+            { "flags": 4, "x": 3, "y": 0 },
+            { "flags": 4, "x": 4, "y": 0 },
+            { "flags": 4, "x": 5, "y": 0 },
+            { "flags": 4, "x": 6, "y": 0 },
+            { "flags": 4, "x": 7, "y": 0 },
+            { "flags": 4, "x": 8, "y": 0 },
+            { "flags": 4, "x": 9, "y": 0 },
+            { "flags": 4, "x": 0, "y": 1 },
+            { "flags": 4, "x": 1, "y": 1 },
+            { "flags": 4, "x": 2, "y": 1 },
+            { "flags": 4, "x": 3, "y": 1 },
+            { "flags": 4, "x": 4, "y": 1 },
+            { "flags": 4, "x": 5, "y": 1 },
+            { "flags": 4, "x": 6, "y": 1 },
+            { "flags": 4, "x": 7, "y": 1 },
+            { "flags": 4, "x": 8, "y": 1 },
+            { "flags": 4, "x": 9, "y": 1 },
+            { "flags": 4, "x": 0, "y": 2 },
+            { "flags": 4, "x": 1, "y": 2 },
+            { "flags": 4, "x": 2, "y": 2 },
+            { "flags": 4, "x": 3, "y": 2 },
+            { "flags": 4, "x": 4, "y": 2 },
+            { "flags": 4, "x": 5, "y": 2 },
+            { "flags": 4, "x": 6, "y": 2 },
+            { "flags": 4, "x": 7, "y": 2 },
+            { "flags": 4, "x": 8, "y": 2 },
+            { "flags": 4, "x": 9, "y": 2 },
+            { "flags": 4, "x": 4, "y": 3 },
+            { "flags": 4, "x": 5, "y": 3 },
+            { "flags": 4, "x": 6, "y": 3 },
+            { "flags": 4, "x": 7, "y": 3 },
+            { "flags": 4, "x": 8, "y": 3 },
+            { "flags": 4, "x": 9, "y": 3 },
+            { "flags": 4, "x": 4, "y": 4 },
+            { "flags": 4, "x": 5, "y": 4 },
+            { "flags": 4, "x": 7, "y": 4 },
+            { "flags": 4, "x": 8, "y": 4 }
+        ]
+    },
     "layouts": {
         "LAYOUT": {
             "layout": [

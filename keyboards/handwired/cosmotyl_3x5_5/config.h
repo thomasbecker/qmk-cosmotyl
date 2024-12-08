@@ -3,7 +3,10 @@
 
 #pragma once
 
-#define EE_HANDS // Store which side I am in EEPROM
+// #define EE_HANDS // Store which side I am in EEPROM
+#define WS2812_PIO_USE_PIO1
+#define RGBLED_NUM 40
+#define RGB_MATRIX_LED_COUNT RGBLED_NUM
 
 // #define MATRIX_ROWS 10 // 5 rows per hand
 // #define MATRIX_COLS 5
