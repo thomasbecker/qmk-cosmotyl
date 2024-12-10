@@ -21,13 +21,12 @@
     },
     "processor": "RP2040",
     "bootloader": "rp2040",
-    "matrix_pins": {
-        "rows": ["GP4", "GP5", "GP6", "GP7", "GP8"],
-        "cols": ["GP9", "GP10", "GP19", "GP20", "GP18"]
+    "encoder": {
+        "rotary": [{ "pin_a": "GP2", "pin_b": "GP3" }]
     },
-    "matrix_size": {
-        "cols": 5,
-        "rows": 10
+    "matrix_pins": {
+        "rows": ["GP4", "GP5", "GP6", "GP7", "GP8", "GP27"],
+        "cols": ["GP9", "GP10", "GP19", "GP20", "GP18"]
     },
     "diode_direction": "ROW2COL",
     "features": {
@@ -52,7 +51,7 @@
             "band_val": true
         },
         "max_brightness": 255,
-        "split_count": [20, 20],
+        "split_count": [23, 20],
         "layout": [
             { "flags": 4, "x": 0, "y": 0 },
             { "flags": 4, "x": 1, "y": 0 },
@@ -147,7 +146,9 @@
                 { "x": 5, "y": 4 },
 
                 { "x": 7, "y": 4 },
-                { "x": 8, "y": 4 }
+                { "x": 8, "y": 4 },
+
+                { "label": "encoder press", "x": 2, "y": 5 }
             ]
         }
     }
