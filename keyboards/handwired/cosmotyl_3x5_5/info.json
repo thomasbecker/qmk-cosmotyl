@@ -17,6 +17,12 @@
         "soft_serial_pin": "GP1",
         "bootmagic": {
             "matrix": [0, 0]
+        },
+        "matrix_pins": {
+            "right": {
+                "rows": ["GP4", "GP5", "GP6", "GP7", "GP8"],
+                "cols": ["GP9", "GP10", "GP26", "GP27", "GP28"]
+            }
         }
     },
     "processor": "RP2040",
