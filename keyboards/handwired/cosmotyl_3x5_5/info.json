@@ -21,7 +21,7 @@
         "matrix_pins": {
             "right": {
                 "rows": ["GP4", "GP5", "GP6", "GP7", "GP8"],
-                "cols": ["GP9", "GP10", "GP26", "GP27", "GP28"]
+                "cols": ["GP28", "GP27", "GP26", "GP10", "GP9"]
             }
         }
     },
@@ -44,20 +44,16 @@
         "rgb_matrix": true
     },
     "rgblight": {
-        "pin": "GP26"
+        "pin": "GP29"
     },
     "rgb_matrix": {
         "driver": "WS2812",
         "animations": {
-            "alphas_mods": true,
             "gradient_up_down": true,
-            "gradient_left_right": true,
-            "breathing": true,
-            "band_sat": true,
-            "band_val": true
+            "breathing": true
         },
         "max_brightness": 255,
-        "split_count": [23, 20],
+        "split_count": [20, 20],
         "layout": [
             { "flags": 4, "x": 0, "y": 0 },
             { "flags": 4, "x": 1, "y": 0 },
