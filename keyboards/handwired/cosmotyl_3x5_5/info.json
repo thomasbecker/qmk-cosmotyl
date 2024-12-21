@@ -37,20 +37,20 @@
     "diode_direction": "ROW2COL",
     "features": {
         "bootmagic": true,
-        "command": false,
-        "console": false,
+        "command": true,
+        "console": true,
         "extrakey": true,
         "mousekey": true,
         "rgb_matrix": true
     },
     "rgblight": {
-        "pin": "GP29"
+        "pin": "GP3"
     },
     "rgb_matrix": {
         "driver": "WS2812",
-        "animations": {
-            "gradient_up_down": true,
-            "breathing": true
+        "default": {
+            "val": 255,
+            "sat": 255
         },
         "max_brightness": 255,
         "split_count": [20, 20],
