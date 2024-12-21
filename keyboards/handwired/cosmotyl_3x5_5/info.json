@@ -28,7 +28,7 @@
     "processor": "RP2040",
     "bootloader": "rp2040",
     "encoder": {
-        "rotary": [{ "pin_a": "GP2", "pin_b": "GP3" }]
+        "rotary": [{ "pin_a": "GP29", "pin_b": "GP2" }]
     },
     "matrix_pins": {
         "rows": ["GP4", "GP5", "GP6", "GP7", "GP8", "GP27"],
