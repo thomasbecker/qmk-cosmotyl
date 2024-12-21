@@ -3,32 +3,31 @@
 
 #pragma once
 
-// #define EE_HANDS // Store which side I am in EEPROM
+#define BOOTMAGIC_ROW_RIGHT 6
+#define BOOTMAGIC_COLUMN_RIGHT 4
+
 #define WS2812_PIO_USE_PIO1
 #define RGBLED_NUM 40
+
 #define RGB_MATRIX_LED_COUNT RGBLED_NUM
-
-// #define MATRIX_ROWS 10 // 5 rows per hand
-// #define MATRIX_COLS 5
-// #define ROWS_PER_HAND 5
-// #define MATRIX_ROW_PINS {GP4, GP5, GP6, GP7, GP8}
-// #define MATRIX_COL_PINS {GP9, GP10, GP19, GP20, GP18}
-// Wiring pins
-// #define MATRIX_ROW_PINS {GP4, GP5, GP6, GP7, GP8}
-// #define MATRIX_COL_PINS {GP9, GP10, GP19, GP20, GP18}
-
-/* Encoders */
-// #define ENCODERS_PAD_A { GP21, GP20 }
-// #define ENCODERS_PAD_B { GP18, GP19 }
 
 /* Trackball */
 // #define SPI_DRIVER SPID0
 // #define SPI_SCK_PIN GP18
 // #define SPI_MISO_PIN GP20
 // #define SPI_MOSI_PIN GP19
-// #define POINTING_DEVICE_CS_PIN GP10
+// #define PMW33XX_CS_PIN GP29
+// #define PMW33XX_CPI 1600
+// #define PMW33XX_LIFTOFF_DISTANCE 0x02
+// #define POINTING_DEVICE_INVERT_Y
 // #define ROTATIONAL_TRANSFORM_ANGLE -30 // Optional: Rotates the trackball
+// #define ROTATIONAL_TRANSFORM_ANGLE 90
+// #define POINTING_DEVICE_TASK_THROTTLE_MS 50
 // #define POINTING_DEVICE_INVERT_X // Optional: Inverts trackball X
+// #define SPLIT_POINTING_ENABLE
+// #define POINTING_DEVICE_RIGHT
+// #define POINTING_DEVICE_TASK_THROTTLE_MS 1
+// #define POINTING_DEVICE_DEBUG
 
 /* Reset */
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
