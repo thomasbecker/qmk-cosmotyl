@@ -28,54 +28,57 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 };
 #endif
 // clang-format on
-int leds[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39};
+layer_state_t layer_state_set_user(layer_state_t state) {
+    static uint8_t last_layer = 255;
+    uint8_t        layer      = get_highest_layer(state | default_layer_state);
 
-#define NUM_LEDS (sizeof(leds) / sizeof(leds[0]))
+    if (layer != last_layer) {
+        dprintf("Layer changed from %u to: %u\n", last_layer, layer);
+        last_layer = layer;
+    }
 
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    uint8_t layer = get_highest_layer(layer_state);
-
-    // Define colors for each layer
-    for (uint8_t i = led_min; i < led_max; i++) {
-        if (i != NO_LED) {
-            switch (layer) {
-                case NUM:
-                    // Number keys are on the home row (indices 5-9 for left side, 25-29 for right side)
-                    if (i == 3 || (i >= 6 && i <= 8) || (i >= 11 && i <= 13) || (i >= 16 && i <= 18)) {
-                        rgb_matrix_set_color(i, 255, 0, 255); // Bright magenta for number keys
-                    } else {
-                        rgb_matrix_set_color(i, 0, 0, 255); // Blue for other keys
-                    }
-                    break;
-                case BASE:
-                    rgb_matrix_set_color(i, 0, 255, 0); // Green
-                    break;
-                case MEDIA:
-                    rgb_matrix_set_color(i, 255, 0, 0); // Red
-                    break;
-                case NAV:
-                    if ((i >= 26 && i <= 32)) {
-                        rgb_matrix_set_color(i, 0, 255, 0); // green for arrow keys
-                    } else {
-                        rgb_matrix_set_color(i, 0, 255, 255); // Cyan for other keys
-                    }
-                    break;
-                case MOUSE:
-                    rgb_matrix_set_color(i, 128, 0, 128); // Purple
-                    break;
-                case SYM:
-                    rgb_matrix_set_color(i, 255, 165, 0); // Orange
-                    break;
-                case FUN:
-                    rgb_matrix_set_color(i, 255, 255, 0); // Yellow
-                    break;
-                default:
-                    rgb_matrix_set_color(i, 50, 50, 50); // Dim white for unknown layers
-                    break;
-            }
+    // Set colors for all LEDs based on current layer
+    for (uint8_t i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
+        dprintf("Setting color for LED %u for layer: %u\n", i, layer);
+        switch (layer) {
+            case NUM:
+                dprintf("NUM layer (7): Setting blue/magenta for: %d\n", i);
+                if (i == 3 || (i >= 6 && i <= 8) || (i >= 11 && i <= 13) || (i >= 16 && i <= 18)) {
+                    rgb_matrix_set_color(i, 255, 0, 255); // Bright magenta for number keys
+                } else {
+                    rgb_matrix_set_color(i, 255, 0, 255); // Blue for other keys
+                    dprintf("NUM layer setting color from layer_state_set_user for LED %d\n", i);
+                }
+                break;
+            case BASE:
+                rgb_matrix_set_color(i, 0, 255, 0); // Green
+                break;
+            case MEDIA:
+                rgb_matrix_set_color(i, 255, 0, 0); // Red
+                break;
+            case NAV:
+                if ((i >= 30 && i <= 33)) {
+                    rgb_matrix_set_color(i, 0, 255, 0); // green for arrow keys
+                } else {
+                    rgb_matrix_set_color(i, 0, 255, 255); // Cyan for other keys
+                }
+                break;
+            case MOUSE:
+                rgb_matrix_set_color(i, 128, 0, 128); // Purple
+                break;
+            case SYM:
+                rgb_matrix_set_color(i, 255, 165, 0); // Orange
+                break;
+            case FUN:
+                rgb_matrix_set_color(i, 255, 255, 0); // Yellow
+                break;
+            default:
+                rgb_matrix_set_color(i, 50, 50, 50); // Dim white for unknown layers
+                break;
         }
     }
-    return false;
+
+    return state;
 }
 
 // layer_state_t layer_state_set_user(layer_state_t state) {
@@ -130,6 +133,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 //     return state;
 // }
 
+bool rgb_matrix_indicators_user(void) {
+    dprintf("rgb_matrix_indicators_user called\n");
+    return true; // Let the normal RGB processing continue
+}
+
 void keyboard_post_init_user(void) {
     // Customise these values to desired behaviour
     debug_enable   = true;
@@ -137,14 +145,20 @@ void keyboard_post_init_user(void) {
     debug_keyboard = true;
     debug_mouse    = true;
 
+    // Debug LED configuration
+    dprintf("LED Configuration:\n");
+    // dprintf("Number of LEDs in config: %d\n", g_led_config.num_leds);
+    // dprintf("DRIVER LED COUNT: %d\n", DRIVER_LED_TOTAL);
+    dprintf("RGB MATRIX LED COUNT: %d\n", RGB_MATRIX_LED_COUNT);
+
     // Initialize RGB Matrix with more explicit configuration
-    rgb_matrix_enable_noeeprom();
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-    rgb_matrix_sethsv_noeeprom(HSV_BLUE);
-    rgb_matrix_set_speed_noeeprom(0);
+    // rgb_matrix_enable_noeeprom();
+    // rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+    // rgb_matrix_sethsv_noeeprom(HSV_BLUE);
+    // rgb_matrix_set_speed_noeeprom(0);
 
     // Set initial color
-    rgb_matrix_set_color_all(0, 255, 0);
+    // rgb_matrix_set_color_all(0, 255, 0);
 
     // Debug RGB state
     dprintf("Initial RGB mode: %d\n", rgb_matrix_get_mode());

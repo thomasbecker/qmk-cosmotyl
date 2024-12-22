@@ -18,17 +18,17 @@
 led_config_t g_led_config = {
     {
         // Key Matrix to LED Index
-        { 0,  1,  2,  3,  4  },  // L00, L01, L02, L03, L04
-        { 5,  6,  7,  8,  9  },  // L10, L11, L12, L13, L14
-        { 10, 11, 12, 13, 14 },  // L20, L21, L22, L23, L24
-        { NO_LED, NO_LED, 15, 16, 17 },  // XXX, XXX, L25, L26, L27
-        { NO_LED, NO_LED, NO_LED, 18, 19 },  // XXX, XXX, XXX, L28, L29
-        { NO_LED, NO_LED, NO_LED, NO_LED, NO_LED },  // XXX, XXX, XXX, XXX, L30 (encoder - no LED)
-        { 20, 21, 22, 23, 24 },  // R00, R01, R02, R03, R04
-        { 25, 26, 27, 28, 29 },  // R10, R11, R12, R13, R14
-        { 30, 31, 32, 33, 34 },  // R20, R21, R22, R23, R24
-        { 35, 36, 37, NO_LED, NO_LED },  // R25, R26, R27, XXX, XXX
-        { 38, 39, NO_LED, NO_LED, NO_LED }   // R28, R29, XXX, XXX, XXX
+        { 19,  18,  17,  16,  15  },     // L00, L01, L02, L03, L04
+        { 10,  11,  12,  13,  14  },     // L10, L11, L12, L13, L14
+        { 9, 8, 7, 6, 5 },     // L20, L21, L22, L23, L24
+        { NO_LED, NO_LED, 4, 3, 2 },  // First thumb row
+        { NO_LED, NO_LED, NO_LED, 0, 1 },  // Second thumb row
+        { NO_LED, NO_LED, NO_LED, NO_LED, NO_LED },  // Encoder
+        { 35, 36, 37, 38, 39 },     // R04, R03, R02, R01, R00 (reversed)
+        { 34, 33, 32, 31, 30 },     // R14, R13, R12, R11, R10 (reversed)
+        { 25, 26, 27, 28, 29 },     // R24, R23, R22, R21, R20 (reversed)
+        { 22, 23, 24, NO_LED, NO_LED },  // Right thumb row (reversed)
+        { 21, 20, NO_LED, NO_LED, NO_LED }   // Right thumb row (reversed)
     },
     {
         // LED Index to Physical Position
