@@ -28,17 +28,15 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 };
 #endif
 // clang-format on
-layer_state_t layer_state_set_user(layer_state_t state) {
-    static uint8_t last_layer = 255;
-    uint8_t        layer      = get_highest_layer(state | default_layer_state);
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    uint8_t layer = get_highest_layer(layer_state | default_layer_state);
 
-    if (layer != last_layer) {
-        dprintf("Layer changed from %u to: %u\n", last_layer, layer);
-        last_layer = layer;
+    if (!rgb_matrix_is_enabled()) {
+        rgb_matrix_enable();
     }
 
     // Set colors for all LEDs based on current layer
-    for (uint8_t i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
+    for (uint8_t i = led_min; i < led_max; i++) {
         dprintf("Setting color for LED %u for layer: %u\n", i, layer);
         switch (layer) {
             case NUM:
@@ -46,7 +44,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
                 if (i == 3 || (i >= 6 && i <= 8) || (i >= 11 && i <= 13) || (i >= 16 && i <= 18)) {
                     rgb_matrix_set_color(i, 255, 0, 255); // Bright magenta for number keys
                 } else {
-                    rgb_matrix_set_color(i, 255, 0, 255); // Blue for other keys
+                    rgb_matrix_set_color(i, 0, 0, 255); // Blue for other keys
                     dprintf("NUM layer setting color from layer_state_set_user for LED %d\n", i);
                 }
                 break;
@@ -60,7 +58,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
                 if ((i >= 30 && i <= 33)) {
                     rgb_matrix_set_color(i, 0, 255, 0); // green for arrow keys
                 } else {
-                    rgb_matrix_set_color(i, 0, 255, 255); // Cyan for other keys
+                    rgb_matrix_set_color(i, 0, 96, 255); // Cyan for other keys
                 }
                 break;
             case MOUSE:
@@ -78,60 +76,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         }
     }
 
-    return state;
+    return true;
 }
-
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//     uint8_t layer = get_highest_layer(state | default_layer_state);
-//     dprintf("Layer changed to: %u\n", layer);
-//
-//     if (!rgb_matrix_is_enabled()) {
-//         rgb_matrix_enable();
-//         dprintf("RGB Matrix was disabled, enabling...\n");
-//     }
-//
-//     // Force disable any effects and ensure we're in direct control
-//     rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-//     rgb_matrix_set_speed_noeeprom(0);
-//
-//     dprintf("Current RGB mode: %d\n", rgb_matrix_get_mode());
-//
-//     // Disable any running animations
-//     rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-//
-//     // Set the color based on layer
-//     for (uint8_t i = 0; i < NUM_LEDS; i++) {
-//         switch (layer) {
-//             case 7: // NUM layer
-//                 dprintf("NUM layer (7): Setting blue\n");
-//                 // rgb_matrix_sethsv_noeeprom(HSV_BLUE);
-//                 rgb_matrix_set_color(leds[i], 255, 0, 255);
-//                 break;
-//             case 9: // FUN layer
-//                 dprintf("FUN layer (9): Setting bright blue\n");
-//                 // rgb_matrix_sethsv_noeeprom(HSV_YELLOW);
-//                 rgb_matrix_set_color(leds[i], 0, 255, 255);
-//                 break;
-//             case 8: // SYM layer
-//                 dprintf("SYM layer (8): Setting red\n");
-//                 // rgb_matrix_sethsv_noeeprom(HSV_RED);
-//                 rgb_matrix_set_color(leds[i], 0, 128, 255);
-//                 break;
-//             case 6: // MEDIA layer
-//                 dprintf("MEDIA layer (6): Setting green\n");
-//                 // rgb_matrix_sethsv_noeeprom(HSV_GREEN);
-//                 rgb_matrix_set_color(leds[i], 128, 0, 255);
-//                 break;
-//             default:
-//                 dprintf("Default case: Layer %u - Setting white %u\n", layer, leds[i]);
-//                 rgb_matrix_set_color(leds[i], 255, 255, 255);
-//                 break;
-//         }
-//     }
-//
-//     dprintf("Color update complete. Mode: %d, Enabled: %d\n", rgb_matrix_get_mode(), rgb_matrix_is_enabled());
-//     return state;
-// }
 
 bool rgb_matrix_indicators_user(void) {
     dprintf("rgb_matrix_indicators_user called\n");
@@ -144,6 +90,13 @@ void keyboard_post_init_user(void) {
     debug_matrix   = true;
     debug_keyboard = true;
     debug_mouse    = true;
+
+    // Initialize RGB Matrix with maximum brightness
+    rgb_matrix_enable();
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+    rgb_matrix_set_flags(LED_FLAG_ALL);
+    rgb_matrix_enable_noeeprom();
+    rgb_matrix_sethsv_noeeprom(0, 0, 255); // Maximum brightness
 
     // Debug LED configuration
     dprintf("LED Configuration:\n");
