@@ -5,26 +5,13 @@
 enum layer_names { BASE = 0, MEDIA = 6, NAV = 4, MOUSE = 5, SYM = 8, NUM = 7, FUN = 9 };
 // clang-format off
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [0] = {ENCODER_CCW_CW(KC_PGUP, KC_PGDN)},  // Mapping for Base layer
-    [4] = {ENCODER_CCW_CW(RGB_HUD, RGB_HUI)},  // Mapping for Layer 1
-    [5] = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},  // Mapping for Layer 2
-    [6] = {ENCODER_CCW_CW(RGB_RMOD, RGB_MOD)}, // Mapping for Layer 3
-    [1] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},  // Mapping for Layer 3
-    [2] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},  // Mapping for Layer 3
-    [3] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},  // Mapping for Layer 3
-    [7] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},  // Mapping for Layer 3
-    [8] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},  // Mapping for Layer 3
-
-    // [0] = {ENCODER_CCW_CW(KC_PGUP, KC_PGDN)},
-    // [4] = {ENCODER_CCW_CW(RM_PREV, RM_NEXT)},
-    // [5] = {ENCODER_CCW_CW(RM_SATD, RM_SATU)},
-    // [6] = {ENCODER_CCW_CW(QK_RGB_MATRIX_VALUE_DOWN, QK_RGB_MATRIX_VALUE_UP)},
-    // [1] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-    // [2] = {ENCODER_CCW_CW(MS_WHLD, MS_WHLU)},
-    // [3] = {ENCODER_CCW_CW(RM_SPDD, RM_SPDU)},
-    // [7] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-    // [8] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-    // You can add more layers here if you need them, or you can also delete lines for layers you are not using
+    [BASE]  = {ENCODER_CCW_CW(KC_PGUP, KC_PGDN)},    // Mouse wheel scroll
+    [MEDIA] = {ENCODER_CCW_CW(KC_MEDIA_PREV_TRACK, KC_MEDIA_NEXT_TRACK)}, // Track prev/next
+    [NAV]   = {ENCODER_CCW_CW(KC_HOME, KC_END)},              // Start/End of line
+    [MOUSE] = {ENCODER_CCW_CW(KC_MS_WH_LEFT, KC_MS_WH_RIGHT)}, // Horizontal scroll
+    [SYM]   = {ENCODER_CCW_CW(LCTL(KC_Z), LCTL(KC_Y))},      // Undo/Redo
+    [NUM]   = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},            // Volume control
+    [FUN]   = {ENCODER_CCW_CW(LCTL(KC_MINUS), LCTL(KC_PLUS))}, // Zoom in/out
 };
 #endif
 // clang-format on
