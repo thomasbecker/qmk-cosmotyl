@@ -28,11 +28,22 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 };
 #endif
 // clang-format on
+#define SAFE_BRIGHTNESS 180 // Reduce from 255 to help with power management
+
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t layer = get_highest_layer(layer_state | default_layer_state);
 
     if (!rgb_matrix_is_enabled()) {
-        rgb_matrix_enable();
+        rgb_matrix_enable_noeeprom();
+        rgb_matrix_sethsv_noeeprom(0, 255, SAFE_BRIGHTNESS);
+    }
+
+    // Reset brightness if it changes
+    static uint8_t last_val    = SAFE_BRIGHTNESS;
+    uint8_t        current_val = rgb_matrix_get_val();
+    if (current_val != last_val) {
+        rgb_matrix_sethsv_noeeprom(0, 255, SAFE_BRIGHTNESS);
+        last_val = SAFE_BRIGHTNESS;
     }
 
     // Set colors for all LEDs based on current layer
@@ -65,7 +76,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 rgb_matrix_set_color(i, 128, 0, 128); // Purple
                 break;
             case SYM:
-                rgb_matrix_set_color(i, 255, 165, 0); // Orange
+                rgb_matrix_set_color(i, 255, 128, 0); // Orange
                 break;
             case FUN:
                 rgb_matrix_set_color(i, 255, 255, 0); // Yellow
@@ -92,11 +103,14 @@ void keyboard_post_init_user(void) {
     debug_mouse    = true;
 
     // Initialize RGB Matrix with maximum brightness
-    rgb_matrix_enable();
+    rgb_matrix_disable_noeeprom(); // First disable to ensure clean state
+    rgb_matrix_enable_noeeprom();  // Then enable
     rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
     rgb_matrix_set_flags(LED_FLAG_ALL);
-    rgb_matrix_enable_noeeprom();
-    rgb_matrix_sethsv_noeeprom(0, 0, 255); // Maximum brightness
+    rgb_matrix_set_speed_noeeprom(0);
+
+    // Set HSV values all at once (hue, saturation, brightness)
+    rgb_matrix_sethsv_noeeprom(0, 255, 255);
 
     // Debug LED configuration
     dprintf("LED Configuration:\n");
