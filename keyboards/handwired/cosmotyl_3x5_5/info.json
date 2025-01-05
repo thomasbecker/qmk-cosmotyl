@@ -92,7 +92,7 @@
             "solid_splash": true,
             "solid_multisplash": true
         },
-        "driver": "WS2812",
+        "driver": "ws2812",
         "default": {
             "val": 255,
             "sat": 255
