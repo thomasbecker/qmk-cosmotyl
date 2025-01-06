@@ -17,6 +17,23 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 // clang-format on
 #define SAFE_BRIGHTNESS 180 // Reduce from 255 to help with power management
 
+enum custom_keycodes {
+    EMAIL = SAFE_RANGE,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case EMAIL:
+            if (record->event.pressed) {
+                SEND_STRING("thomas.becker00@gmail.com");
+            } else {
+                // when keycode EMAIL is released
+            }
+            break;
+    }
+    return true;
+};
+
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t layer = get_highest_layer(layer_state | default_layer_state);
 

@@ -1,6 +1,7 @@
 # Build Options
 SERIAL_DRIVER = vendor
 WS2812_DRIVER = vendor
+REPEAT_KEY_ENABLE = yes
 
 # Trackball
 POINTING_DEVICE_ENABLE = no
