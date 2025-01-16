@@ -52,15 +52,15 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
     // Set colors for all LEDs based on current layer
     for (uint8_t i = led_min; i < led_max; i++) {
-        dprintf("Setting color for LED %u for layer: %u\n", i, layer);
+        // dprintf("Setting color for LED %u for layer: %u\n", i, layer);
         switch (layer) {
             case NUM:
-                dprintf("NUM layer (7): Setting blue/magenta for: %d\n", i);
+                // dprintf("NUM layer (7): Setting blue/magenta for: %d\n", i);
                 if (i == 3 || (i >= 6 && i <= 8) || (i >= 11 && i <= 13) || (i >= 16 && i <= 18)) {
                     rgb_matrix_set_color(i, 255, 0, 255); // Bright magenta for number keys
                 } else {
                     rgb_matrix_set_color(i, 0, 0, 255); // Blue for other keys
-                    dprintf("NUM layer setting color from layer_state_set_user for LED %d\n", i);
+                    // dprintf("NUM layer setting color from layer_state_set_user for LED %d\n", i);
                 }
                 break;
             case BASE:
@@ -95,7 +95,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 }
 
 bool rgb_matrix_indicators_user(void) {
-    dprintf("rgb_matrix_indicators_user called\n");
+    // dprintf("rgb_matrix_indicators_user called\n");
     return true; // Let the normal RGB processing continue
 }
 
@@ -117,10 +117,10 @@ void keyboard_post_init_user(void) {
     rgb_matrix_sethsv_noeeprom(0, 255, 255);
 
     // Debug LED configuration
-    dprintf("LED Configuration:\n");
+    // dprintf("LED Configuration:\n");
     // dprintf("Number of LEDs in config: %d\n", g_led_config.num_leds);
     // dprintf("DRIVER LED COUNT: %d\n", DRIVER_LED_TOTAL);
-    dprintf("RGB MATRIX LED COUNT: %d\n", RGB_MATRIX_LED_COUNT);
+    // dprintf("RGB MATRIX LED COUNT: %d\n", RGB_MATRIX_LED_COUNT);
 
     // Initialize RGB Matrix with more explicit configuration
     // rgb_matrix_enable_noeeprom();
@@ -132,9 +132,9 @@ void keyboard_post_init_user(void) {
     // rgb_matrix_set_color_all(0, 255, 0);
 
     // Debug RGB state
-    dprintf("Initial RGB mode: %d\n", rgb_matrix_get_mode());
-    dprintf("RGB enabled: %d\n", rgb_matrix_is_enabled());
-    dprintf("RGB flags: 0x%08X\n", rgb_matrix_get_flags());
+    // dprintf("Initial RGB mode: %d\n", rgb_matrix_get_mode());
+    // dprintf("RGB enabled: %d\n", rgb_matrix_is_enabled());
+    // dprintf("RGB flags: 0x%08X\n", rgb_matrix_get_flags());
 
     // Initialize debug output
     print("Keyboard initialized.\n");
